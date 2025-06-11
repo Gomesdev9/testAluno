@@ -1,4 +1,3 @@
-
 // Variáveis globais
 let currentLesson = 0;
 let progress = 0;
@@ -10,33 +9,34 @@ document.addEventListener('DOMContentLoaded', function() {
     showTab('overview');
 });
 
-// Função para selecionar lição
+// Função para selecionar lição - agora redireciona para páginas específicas
 function selectLesson(lessonNumber) {
-    // Remove classe active de todas as lições
-    document.querySelectorAll('.lesson-item').forEach(item => {
-        item.classList.remove('active');
-    });
+    // Define as URLs das lições
+    const lessonUrls = {
+        1: './pages/licao1-o-que-e-php.php',
+        2: './pages/licao2-configurando-ambiente.php',
+        3: './pages/licao3-primeiro-codigo.php',
+        4: './pages/licao4-variaveis-tipos.php',
+        5: './pages/licao5-operadores.php',
+        6: './pages/licao6-estruturas-condicionais.php',
+        7: './pages/licao7-loops.php',
+        8: './pages/licao8-arrays.php',
+        9: './pages/licao9-funcoes.php',
+        10: './pages/licao10-formularios.php',
+        11: './pages/licao11-banco-dados.php',
+        12: './pages/licao12-sessoes-cookies.php'
+    };
     
-    // Adiciona classe active à lição selecionada
-    event.target.closest('.lesson-item').classList.add('active');
-    
+    // Salva o progresso atual no localStorage (simulado)
     currentLesson = lessonNumber;
     progress = Math.round((lessonNumber / 12) * 100);
-    updateProgress();
     
-    // Determina qual aba mostrar baseado na lição
-    if (lessonNumber <= 4) {
-        showTab('fundamentos');
-    } else if (lessonNumber <= 8) {
-        showTab('estruturas');
+    // Redireciona para a página da lição
+    if (lessonUrls[lessonNumber]) {
+        window.location.href = lessonUrls[lessonNumber];
     } else {
-        showTab('avancado');
+        alert('Lição ainda não disponível!');
     }
-    
-    // Scroll suave para a seção interativa
-    document.querySelector('.interactive-section').scrollIntoView({
-        behavior: 'smooth'
-    });
 }
 
 // Função para mostrar abas
