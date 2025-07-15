@@ -5,126 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lição 2: Configurando o Ambiente - Aprenda PHP</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        .lesson-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .lesson-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .lesson-content {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .back-button:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-        }
-        
-        .step-box {
-            background: #f0f8ff;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        
-        .command-box {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            margin: 10px 0;
-        }
-        
-        .warning-box {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .success-box {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .option-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .option-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .option-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/stylelica2.css">
 </head>
 
 <body>
+    <div class="floating-elements"></div>
+
     <div class="lesson-container">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
         <a href="../index.php" class="back-button">
             ← Voltar ao Menu Principal
         </a>
@@ -147,10 +38,10 @@
             <p>Para programar em PHP, você precisa de um servidor web. Aqui estão as melhores opções:</p>
 
             <div class="option-cards">
-                <div class="option-card">
+                <div class="option-card" onclick="selectOption('xampp')">
                     <h3>🚀 XAMPP</h3>
                     <p><strong>Recomendado para iniciantes</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>Apache + MySQL + PHP</li>
                         <li>Interface gráfica fácil</li>
                         <li>Windows, Mac, Linux</li>
@@ -158,10 +49,10 @@
                     </ul>
                 </div>
 
-                <div class="option-card">
+                <div class="option-card" onclick="selectOption('wamp')">
                     <h3>⚡ WAMP/MAMP</h3>
                     <p><strong>Alternativa popular</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>WAMP (Windows)</li>
                         <li>MAMP (Mac)</li>
                         <li>Interface simples</li>
@@ -169,10 +60,10 @@
                     </ul>
                 </div>
 
-                <div class="option-card">
+                <div class="option-card" onclick="selectOption('docker')">
                     <h3>🐳 Docker</h3>
                     <p><strong>Para desenvolvedores avançados</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>Ambiente isolado</li>
                         <li>Portabilidade</li>
                         <li>Configuração customizada</li>
@@ -183,16 +74,24 @@
 
             <h2>📥 Instalando XAMPP (Recomendado)</h2>
 
-            <div class="step-box">
+            <div class="installation-stepper">
+                <div class="step-item" data-step="1">1</div>
+                <div class="step-item" data-step="2">2</div>
+                <div class="step-item" data-step="3">3</div>
+                <div class="step-item" data-step="4">4</div>
+            </div>
+
+            <div class="step-box" id="step-1">
                 <h3>Passo 1: Download</h3>
                 <ol>
                     <li>Acesse: <strong>https://www.apachefriends.org</strong></li>
                     <li>Baixe a versão para seu sistema operacional</li>
                     <li>Escolha a versão mais recente do PHP</li>
                 </ol>
+                <button class="test-button" onclick="completeStep(1)">Passo Concluído</button>
             </div>
 
-            <div class="step-box">
+            <div class="step-box" id="step-2">
                 <h3>Passo 2: Instalação</h3>
                 <ol>
                     <li>Execute o arquivo baixado</li>
@@ -200,9 +99,10 @@
                     <li>Instale no diretório padrão (C:\xampp no Windows)</li>
                     <li>Finalize a instalação</li>
                 </ol>
+                <button class="test-button" onclick="completeStep(2)">Passo Concluído</button>
             </div>
 
-            <div class="step-box">
+            <div class="step-box" id="step-3">
                 <h3>Passo 3: Iniciando os Serviços</h3>
                 <ol>
                     <li>Abra o XAMPP Control Panel</li>
@@ -210,6 +110,13 @@
                     <li>Clique em <strong>"Start"</strong> no MySQL</li>
                     <li>Os status devem ficar verdes</li>
                 </ol>
+                <button class="test-button" onclick="completeStep(3)">Passo Concluído</button>
+            </div>
+
+            <div class="step-box" id="step-4">
+                <h3>Passo 4: Verificação</h3>
+                <p>Teste se tudo está funcionando corretamente</p>
+                <button class="test-button" onclick="completeStep(4)">Passo Concluído</button>
             </div>
 
             <div class="warning-box">
@@ -222,6 +129,15 @@
             </div>
 
             <h2>🧪 Testando a Instalação</h2>
+
+            <div class="interactive-test">
+                <h3>Teste Interativo</h3>
+                <p>Clique nos botões para testar cada componente:</p>
+                <button class="test-button" onclick="testComponent('apache')">Testar Apache</button>
+                <button class="test-button" onclick="testComponent('php')">Testar PHP</button>
+                <button class="test-button" onclick="testComponent('mysql')">Testar MySQL</button>
+                <div class="test-result" id="test-result"></div>
+            </div>
 
             <div class="step-box">
                 <h3>Teste 1: Apache Funcionando</h3>
@@ -239,11 +155,11 @@
                     <li>Crie um arquivo: <code>teste.php</code></li>
                     <li>Adicione o seguinte código:</li>
                 </ol>
-                
+
                 <div class="command-box">
-&lt;?php
-phpinfo();
-?&gt;
+                    &lt;?php
+                    phpinfo();
+                    ?&gt;
                 </div>
 
                 <ol start="4">
@@ -262,10 +178,10 @@ phpinfo();
             <p>Para escrever código PHP, você precisa de um bom editor. Recomendações:</p>
 
             <div class="option-cards">
-                <div class="option-card">
+                <div class="option-card" onclick="selectEditor('vscode')">
                     <h3>🆚 Visual Studio Code</h3>
                     <p><strong>Mais popular</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>Gratuito</li>
                         <li>Extensões para PHP</li>
                         <li>Syntax highlighting</li>
@@ -273,10 +189,10 @@ phpinfo();
                     </ul>
                 </div>
 
-                <div class="option-card">
+                <div class="option-card" onclick="selectEditor('phpstorm')">
                     <h3>💡 PHPStorm</h3>
                     <p><strong>IDE completa</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>Pago (30 dias grátis)</li>
                         <li>Funcionalidades avançadas</li>
                         <li>Refactoring automático</li>
@@ -284,10 +200,10 @@ phpinfo();
                     </ul>
                 </div>
 
-                <div class="option-card">
+                <div class="option-card" onclick="selectEditor('sublime')">
                     <h3>📝 Sublime Text</h3>
                     <p><strong>Leve e rápido</strong></p>
-                    <ul style="text-align: left;">
+                    <ul>
                         <li>Interface minimalista</li>
                         <li>Performance excelente</li>
                         <li>Plugins disponíveis</li>
@@ -311,30 +227,30 @@ phpinfo();
 
             <h2>📁 Estrutura de Pastas</h2>
             <div class="command-box">
-C:\xampp\
-├── htdocs\          ← Seus arquivos PHP ficam aqui
-├── php\             ← Configurações do PHP
-├── apache\          ← Configurações do Apache
-├── mysql\           ← Banco de dados MySQL
-└── phpMyAdmin\      ← Interface web para MySQL
+                C:\xampp\
+                ├── htdocs\ ← Seus arquivos PHP ficam aqui
+                ├── php\ ← Configurações do PHP
+                ├── apache\ ← Configurações do Apache
+                ├── mysql\ ← Banco de dados MySQL
+                └── phpMyAdmin\ ← Interface web para MySQL
             </div>
 
             <div class="warning-box">
                 <h4>💡 Dica Importante:</h4>
-                <p>Todos os seus projetos PHP devem ficar dentro da pasta <strong>htdocs</strong>. 
-                Crie uma pasta para cada projeto dentro de htdocs.</p>
+                <p>Todos os seus projetos PHP devem ficar dentro da pasta <strong>htdocs</strong>.
+                    Crie uma pasta para cada projeto dentro de htdocs.</p>
             </div>
 
             <h2>✅ Checklist Final</h2>
             <div class="success-box">
                 <h4>Verifique se você tem:</h4>
-                <ul>
-                    <li>☑️ XAMPP instalado e funcionando</li>
-                    <li>☑️ Apache e MySQL iniciados</li>
-                    <li>☑️ Página localhost carregando</li>
-                    <li>☑️ PHP funcionando (teste com phpinfo())</li>
-                    <li>☑️ Editor de código instalado</li>
-                    <li>☑️ Erros PHP habilitados</li>
+                <ul class="checklist">
+                    <li data-check="xampp">XAMPP instalado e funcionando</li>
+                    <li data-check="services">Apache e MySQL iniciados</li>
+                    <li data-check="localhost">Página localhost carregando</li>
+                    <li data-check="php">PHP funcionando (teste com phpinfo())</li>
+                    <li data-check="editor">Editor de código instalado</li>
+                    <li data-check="errors">Erros PHP habilitados</li>
                 </ul>
             </div>
 
@@ -344,23 +260,3 @@ C:\xampp\
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Lição 2 - Configurando Ambiente carregada!');
-            
-            // Adiciona interatividade aos cards
-            const cards = document.querySelectorAll('.option-card');
-            cards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.backgroundColor = '#f0f8ff';
-                    setTimeout(() => {
-                        this.style.backgroundColor = 'white';
-                    }, 200);
-                });
-            });
-        });
-    </script>
-</body>
-
-</html>

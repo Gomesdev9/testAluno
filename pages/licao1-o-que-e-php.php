@@ -5,102 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lição 1: O que é PHP e como funciona - Aprenda PHP</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        .lesson-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .lesson-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .lesson-content {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .back-button:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-        }
-        
-        .concept-box {
-            background: #f0f8ff;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        
-        .example-box {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .tip-box {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/stylelicao1.css">
 </head>
 
 <body>
+    <div class="floating-elements"></div>
+
     <div class="lesson-container">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
         <a href="../index.php" class="back-button">
             ← Voltar ao Menu Principal
         </a>
@@ -122,23 +37,44 @@
             <h2>🤔 O que é PHP?</h2>
             <div class="concept-box">
                 <h3>💡 Definição</h3>
-                <p><strong>PHP</strong> (PHP: Hypertext Preprocessor) é uma linguagem de programação de código aberto, 
-                especialmente adequada para desenvolvimento web e que pode ser embarcada dentro do HTML.</p>
+                <p><strong>PHP</strong> (PHP: Hypertext Preprocessor) é uma linguagem de programação de código aberto,
+                    especialmente adequada para desenvolvimento web e que pode ser embarcada dentro do HTML.</p>
             </div>
 
-            <h3>📈 História do PHP</h3>
-            <ul>
-                <li><strong>1994:</strong> Criado por Rasmus Lerdorf</li>
-                <li><strong>1995:</strong> Primeira versão pública (Personal Home Page)</li>
-                <li><strong>1997:</strong> PHP 3 - Reescrito por Andi Gutmans e Zeev Suraski</li>
-                <li><strong>2000:</strong> PHP 4 - Introdução do Zend Engine</li>
-                <li><strong>2004:</strong> PHP 5 - Orientação a objetos melhorada</li>
-                <li><strong>2015:</strong> PHP 7 - Melhoria significativa de performance</li>
-                <li><strong>2020:</strong> PHP 8 - Novas funcionalidades modernas</li>
-            </ul>
+            <h2>📈 História do PHP</h2>
+            <div class="interactive-timeline">
+                <div class="timeline-item" onclick="showDetails(1994)">
+                    <span class="timeline-year">1994:</span>
+                    <span>Criado por Rasmus Lerdorf</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(1995)">
+                    <span class="timeline-year">1995:</span>
+                    <span>Primeira versão pública (Personal Home Page)</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(1997)">
+                    <span class="timeline-year">1997:</span>
+                    <span>PHP 3 - Reescrito por Andi Gutmans e Zeev Suraski</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(2000)">
+                    <span class="timeline-year">2000:</span>
+                    <span>PHP 4 - Introdução do Zend Engine</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(2004)">
+                    <span class="timeline-year">2004:</span>
+                    <span>PHP 5 - Orientação a objetos melhorada</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(2015)">
+                    <span class="timeline-year">2015:</span>
+                    <span>PHP 7 - Melhoria significativa de performance</span>
+                </div>
+                <div class="timeline-item" onclick="showDetails(2020)">
+                    <span class="timeline-year">2020:</span>
+                    <span>PHP 8 - Novas funcionalidades modernas</span>
+                </div>
+            </div>
 
             <h2>⚙️ Como PHP Funciona?</h2>
-            
+
             <div class="concept-box">
                 <h3>🔄 Processo de Execução</h3>
                 <ol>
@@ -149,9 +85,9 @@
                 </ol>
             </div>
 
-            <h3>🖥️ Exemplo Prático</h3>
+            <h2>🖥️ Exemplo Prático</h2>
             <div class="example-box">
-<pre><code>&lt;?php
+                <pre><code>&lt;?php
 // Este código PHP é executado no servidor
 $nome = "João";
 $idade = 25;
@@ -168,7 +104,7 @@ echo "&lt;p&gt;Hoje é: " . $data_atual . "&lt;/p&gt;";
                 <div style="background: white; padding: 15px; border-radius: 6px; margin-top: 10px;">
                     <h1 style="color: #333; margin: 0;">Olá, João!</h1>
                     <p style="margin: 5px 0;">Você tem 25 anos.</p>
-                    <p style="margin: 5px 0;">Hoje é: 2025-06-11</p>
+                    <p style="margin: 5px 0;">Hoje é: 2025-01-15</p>
                 </div>
             </div>
 
@@ -185,14 +121,31 @@ echo "&lt;p&gt;Hoje é: " . $data_atual . "&lt;/p&gt;";
             </div>
 
             <h2>🚀 Onde PHP é Usado?</h2>
-            <h3>Sites Famosos que Usam PHP:</h3>
-            <ul>
-                <li><strong>Facebook:</strong> Rede social mais popular do mundo</li>
-                <li><strong>Wikipedia:</strong> Enciclopédia online</li>
-                <li><strong>WordPress:</strong> 40% dos sites da internet</li>
-                <li><strong>Slack:</strong> Plataforma de comunicação</li>
-                <li><strong>Etsy:</strong> Marketplace de produtos artesanais</li>
-            </ul>
+            <div class="concept-box">
+                <h3>Sites Famosos que Usam PHP:</h3>
+                <div class="animated-counter" id="sites-counter">40%</div>
+                <p>dos sites da internet usam PHP!</p>
+                <ul>
+                    <li><strong>Facebook:</strong> Rede social mais popular do mundo</li>
+                    <li><strong>Wikipedia:</strong> Enciclopédia online</li>
+                    <li><strong>WordPress:</strong> 40% dos sites da internet</li>
+                    <li><strong>Slack:</strong> Plataforma de comunicação</li>
+                    <li><strong>Etsy:</strong> Marketplace de produtos artesanais</li>
+                </ul>
+            </div>
+
+            <h2>🧠 Quiz Interativo</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    Qual é o significado da sigla PHP?
+                </div>
+                <ul class="quiz-options">
+                    <li onclick="selectAnswer(this, false)">Personal Home Page</li>
+                    <li onclick="selectAnswer(this, true)">PHP: Hypertext Preprocessor</li>
+                    <li onclick="selectAnswer(this, false)">Private Home Protocol</li>
+                    <li onclick="selectAnswer(this, false)">Public HTTP Parser</li>
+                </ul>
+            </div>
 
             <h2>📝 Atividade Prática</h2>
             <div class="tip-box">
@@ -225,13 +178,7 @@ echo "&lt;p&gt;Hoje é: " . $data_atual . "&lt;/p&gt;";
         </div>
     </div>
 
-    <script>
-        // Marca a lição como concluída
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simula progresso da lição
-            console.log('Lição 1 carregada com sucesso!');
-        });
-    </script>
+<script src="../assets/js/licao1.js"></script>
 </body>
 
 </html>
